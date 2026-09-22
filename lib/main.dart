@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor:  const Color.fromARGB(255, 26, 11, 42),
 
         body: Stack(
@@ -42,24 +43,75 @@ class MyApp extends StatelessWidget {
                 ),
             ),    
 
-            Positioned(top: 250,left: 12,
+            Positioned(top: 250,left: 17.5,
                 child: Container(
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.only(
+                    top: 40,
+                    left: 20,
+                    right: 20,),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        "Sign in / Login",
+                        style:TextStyle(
+                          color: Color.fromARGB(255, 132, 92, 202),
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+                      ),
+                  SizedBox(height: 20,),
                       Text(
                         "Email",
                         style: TextStyle(
                           fontSize: 25,
                           color: Color.fromARGB(255, 160, 123, 225),
-
                         ),
                       ),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: "Enter your Email",
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 160, 123, 225),
+                        border: OutlineInputBorder(),
+                    ),
+                   ),
+                  SizedBox(height:35,),
+                   Text(
+                    "Mot de passe",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Color.fromARGB(255, 160, 123, 225),
+                    ),
+                   ),
+                   TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: "Enter your password",
+                      filled: true,
+                      fillColor: Color.fromARGB(255, 160, 123, 225),
+                      border: OutlineInputBorder(),
+                    ),
+                   ),
+                   SizedBox(height:20,),
+                   Align(
+                    alignment: Alignment.topCenter,
+                   
+                   child: Text(
+                    "Or with",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color.fromARGB(255, 160, 123, 225),
+                    ),
+                   ),
+                   ),
                     ],
                   ),
-                  width:385,
+                  width:375,
                   height:450,
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
